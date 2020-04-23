@@ -233,7 +233,7 @@ export default class extends Vue {
 
   // 提交问卷
   async submitNaire () {
-    this.userId = new Date().getTime().toString();
+    this.userId = new Date().getTime().toString()
     if (!this.validateNaire()) {
       return
     }
@@ -278,7 +278,7 @@ export default class extends Vue {
     })
     this.finished = false
     if (res.success) {
-      this.$message.success("问卷提交成功")
+      this.$message.success('问卷提交成功')
       this.$router.push('/complete')
     } else {
       this.$message.error('提交失败，错误信息：' + res.data.msg)
