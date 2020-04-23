@@ -1,7 +1,7 @@
 <template>
   <div class="login-wrapper">
     <div class="login-form">
-      <h3 class="title">微型问卷系统后台管理</h3>
+      <h3 class="title">后台管理</h3>
       <el-form
         ref="form"
         :model="form"

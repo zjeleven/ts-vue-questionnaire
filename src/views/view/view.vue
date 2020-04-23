@@ -65,7 +65,7 @@
         </div>
       </div>
       <div class="footer">
-        <p>微型问卷系统</p>
+        <p>苏州外国语学校</p>
       </div>
     </div>
   </div>
