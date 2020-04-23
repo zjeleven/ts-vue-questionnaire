@@ -25,7 +25,7 @@
           <div style="white-space: pre-wrap">{{ naire.intro }}</div>
           <p class="mt-10">截止日期：{{ naire.deadline | formatTime }}</p>
         </div>
-        <div class="user-info">
+        <!-- <div class="user-info">
           <el-alert :type="isLogin ? 'success' : 'warning'">{{ loginTip }}</el-alert>
           <el-form
             v-show="!isLogin"
@@ -36,16 +36,16 @@
             inline
           >
             <el-form-item prop="name">
-              <el-input v-model="userInfo.name" placeholder="请输入姓名" />
+              <el-input v-model="userInfo.name" placeholder="请输入姓名"/>
             </el-form-item>
             <el-form-item prop="identity">
-              <el-input v-model="userInfo.identity" placeholder="请输入身份证后6位" />
+              <el-input v-model="userInfo.identity" placeholder="请输入身份证后6位" value="111" />
             </el-form-item>
             <el-form-item>
               <el-button type="primary" @click="handleSubmit">点击登录</el-button>
             </el-form-item>
           </el-form>
-        </div>
+        </div> -->
 
         <question-list :question-list="naire.topic" />
 
@@ -88,11 +88,11 @@ import { questionType } from '@/config/enum/questionType'
 export default class extends Vue {
   private loading: boolean = false
   private naire: any = null
-  private isLogin: boolean = false
+  private isLogin: boolean = true
   private userId: string = ''
   private userInfo: any = {
-    name: '',
-    identity: ''
+    name: '111',
+    identity: '111'
   }
   private userInfoRule: any = {
     name: [
@@ -220,19 +220,20 @@ export default class extends Vue {
       })
       return false
     }
-    if (!this.isLogin) {
-      this.$notify.warning({
-        title: '提示',
-        message: '请先填写用户信息',
-        type: 'warning'
-      })
-      return false
-    }
+    // if (!this.isLogin) {
+    //   this.$notify.warning({
+    //     title: '提示',
+    //     message: '请先填写用户信息',
+    //     type: 'warning'
+    //   })
+    //   return false
+    // }
     return true
   }
 
   // 提交问卷
   async submitNaire () {
+    this.userId = new Date().getTime().toString();
     if (!this.validateNaire()) {
       return
     }
@@ -277,7 +278,7 @@ export default class extends Vue {
     })
     this.finished = false
     if (res.success) {
-      this.$message.success(res.data.msg)
+      this.$message.success("问卷提交成功")
       this.$router.push('/complete')
     } else {
       this.$message.error('提交失败，错误信息：' + res.data.msg)
