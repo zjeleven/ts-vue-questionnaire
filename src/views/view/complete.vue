@@ -9,7 +9,7 @@
       </div>
     </div>
     <div class="footer">
-      <p>微型问卷调查系统</p>
+      <p>苏外信息中心</p>
     </div>
   </div>
 </template>

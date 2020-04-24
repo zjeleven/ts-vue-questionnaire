@@ -65,7 +65,7 @@
         </div>
       </div>
       <div class="footer">
-        <p>苏州外国语学校</p>
+        <p>苏州外国语学校信息中心技术支持</p>
       </div>
     </div>
   </div>
